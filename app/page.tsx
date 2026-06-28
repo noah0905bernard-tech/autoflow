@@ -1,116 +1,102 @@
+'use client'
+import { useState } from 'react'
 import Link from 'next/link'
 import { PLANS } from '@/lib/stripe'
 
 export default function Home() {
+  const [annual, setAnnual] = useState(false)
+
   return (
-    <main>
+    <main style={{background:'#080810',minHeight:'100vh',color:'#F0EEE9'}}>
+
       {/* NAV */}
-      <nav className="border-b border-gray-100 px-6 py-4 flex items-center justify-between max-w-6xl mx-auto">
-        <span className="font-bold text-xl tracking-tight">Auto<span className="text-indigo-600">Flow</span></span>
-        <div className="flex items-center gap-6">
-          <a href="#features" className="text-sm text-gray-500 hover:text-gray-900">Fonctionnalités</a>
-          <a href="#pricing" className="text-sm text-gray-500 hover:text-gray-900">Tarifs</a>
-          <Link href="/pricing" className="bg-indigo-600 text-white text-sm px-4 py-2 rounded-lg hover:bg-indigo-700 transition">
+      <nav style={{borderBottom:'1px solid #1E1E35',padding:'1rem 2rem',display:'flex',alignItems:'center',justifyContent:'space-between',maxWidth:'1100px',margin:'0 auto'}}>
+        <span style={{fontWeight:700,fontSize:'20px',letterSpacing:'-0.5px'}}>Auto<span style={{color:'#7C3AED'}}>Flow</span></span>
+        <div style={{display:'flex',alignItems:'center',gap:'2rem'}}>
+          <a href="#features" style={{fontSize:'14px',color:'#8884A0',textDecoration:'none'}}>Fonctionnalités</a>
+          <a href="#pricing" style={{fontSize:'14px',color:'#8884A0',textDecoration:'none'}}>Tarifs</a>
+          <Link href="/pricing" style={{background:'#7C3AED',color:'#fff',fontSize:'14px',padding:'8px 20px',borderRadius:'8px',textDecoration:'none',fontWeight:500}}>
             Démarrer →
           </Link>
         </div>
       </nav>
 
       {/* HERO */}
-      <section className="max-w-4xl mx-auto px-6 py-24 text-center">
-        <div className="inline-flex items-center gap-2 bg-indigo-50 text-indigo-700 text-xs font-medium px-3 py-1 rounded-full mb-6">
-          <span className="w-1.5 h-1.5 bg-indigo-600 rounded-full animate-pulse" />
-          Automatisation IA · En pilote automatique
+      <section style={{maxWidth:'800px',margin:'0 auto',padding:'7rem 2rem 5rem',textAlign:'center'}}>
+        <div style={{display:'inline-flex',alignItems:'center',gap:'8px',background:'rgba(124,58,237,0.12)',border:'1px solid rgba(124,58,237,0.3)',color:'#A78BFA',fontSize:'12px',fontWeight:500,padding:'5px 14px',borderRadius:'20px',marginBottom:'2rem',letterSpacing:'0.05em'}}>
+          <span style={{width:'6px',height:'6px',background:'#10B981',borderRadius:'50%',display:'inline-block',animation:'pulse 1.5s ease-in-out infinite'}} />
+          Contenu IA · Marque blanche
         </div>
-        <h1 className="text-5xl font-bold leading-tight mb-6 text-gray-900">
-          Génère <span className="text-indigo-600">5 000€/mois</span><br />sans lever le petit doigt
+        <h1 style={{fontSize:'clamp(40px,7vw,72px)',fontWeight:700,lineHeight:1.05,marginBottom:'1.5rem',letterSpacing:'-2px'}}>
+          Le contenu IA que tes clients<br/>croient <span style={{color:'#7C3AED'}}>écrit à la main.</span>
         </h1>
-        <p className="text-xl text-gray-500 mb-10 max-w-2xl mx-auto leading-relaxed">
-          AutoFlow génère ton contenu, prospecte tes clients et envoie les factures — automatiquement, chaque jour.
+        <p style={{fontSize:'18px',color:'#8884A0',marginBottom:'2.5rem',maxWidth:'520px',margin:'0 auto 2.5rem',lineHeight:1.7}}>
+          Articles SEO, posts LinkedIn, newsletters — générés par IA, publiés sous ta marque. Tes clients ne voient que du contenu de qualité.
         </p>
-        <div className="flex items-center justify-center gap-4 flex-wrap">
-          <Link href="/pricing" className="bg-indigo-600 text-white px-8 py-4 rounded-xl text-base font-semibold hover:bg-indigo-700 transition">
+        <div style={{display:'flex',alignItems:'center',justifyContent:'center',gap:'12px',flexWrap:'wrap'}}>
+          <Link href="/pricing" style={{background:'#7C3AED',color:'#fff',padding:'14px 32px',borderRadius:'10px',fontSize:'15px',fontWeight:600,textDecoration:'none'}}>
             Commencer à 59€/mois
           </Link>
-          <a href="#features" className="text-gray-500 text-base px-6 py-4 hover:text-gray-900 transition">
+          <a href="#features" style={{color:'#8884A0',fontSize:'15px',textDecoration:'none',padding:'14px 20px'}}>
             Voir comment ça marche ↓
           </a>
         </div>
-        <p className="mt-6 text-sm text-gray-400">Sans engagement · Annulable à tout moment</p>
+        <p style={{marginTop:'1.5rem',fontSize:'13px',color:'#8884A0'}}>Sans engagement · Annulable à tout moment</p>
       </section>
 
-      {/* STATS */}
-      <section className="bg-gray-50 py-12">
-        <div className="max-w-4xl mx-auto px-6 grid grid-cols-3 gap-8 text-center">
-          {[
-            { n: '5 000€', l: 'Revenus/mois atteignables' },
-            { n: '90 j', l: 'Pour atteindre l\'objectif' },
-            { n: '83%', l: 'Marge nette estimée' },
-          ].map((s) => (
-            <div key={s.l}>
-              <div className="text-3xl font-bold text-gray-900 mb-1">{s.n}</div>
-              <div className="text-sm text-gray-500">{s.l}</div>
-            </div>
-          ))}
+      {/* WHAT IS AUTOFLOW */}
+      <section style={{borderTop:'1px solid #1E1E35',borderBottom:'1px solid #1E1E35',padding:'3rem 2rem',textAlign:'center'}}>
+        <div style={{maxWidth:'700px',margin:'0 auto'}}>
+          <div style={{fontSize:'32px',fontWeight:700,marginBottom:'1rem',letterSpacing:'-1px'}}>
+            Auto<span style={{color:'#7C3AED'}}>Flow</span>
+          </div>
+          <p style={{fontSize:'16px',color:'#8884A0',lineHeight:1.7}}>
+            AutoFlow est une plateforme SaaS qui génère automatiquement du contenu marketing de qualité — articles SEO, posts LinkedIn, newsletters — et le publie directement sous ta marque. Tes clients pensent que tu as rédigé chaque mot. Toi, tu n'as rien fait.
+          </p>
         </div>
       </section>
 
       {/* FEATURES */}
-      <section id="features" className="max-w-5xl mx-auto px-6 py-24">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold mb-4">4 automatismes, 0 effort</h2>
-          <p className="text-gray-500 text-lg">Tu configures une fois. AutoFlow tourne 24h/24.</p>
+      <section id="features" style={{maxWidth:'1000px',margin:'0 auto',padding:'6rem 2rem'}}>
+        <div style={{textAlign:'center',marginBottom:'4rem'}}>
+          <h2 style={{fontSize:'36px',fontWeight:700,marginBottom:'1rem',letterSpacing:'-1px'}}>4 automatismes, 0 effort</h2>
+          <p style={{color:'#8884A0',fontSize:'16px'}}>Tu configures une fois. AutoFlow tourne 24h/24.</p>
         </div>
-        <div className="grid grid-cols-2 gap-6">
+        <div style={{display:'grid',gridTemplateColumns:'repeat(2,1fr)',gap:'16px'}}>
           {[
-            {
-              icon: '✍️',
-              title: 'Génération de contenu',
-              desc: 'Articles SEO, posts LinkedIn et newsletters publiés automatiquement chaque jour sous ta marque.',
-            },
-            {
-              icon: '🎯',
-              title: 'Prospection ciblée',
-              desc: 'Scraping + scoring de leads qualifiés selon ton profil client idéal. Aucune recherche manuelle.',
-            },
-            {
-              icon: '📧',
-              title: 'Outreach personnalisé',
-              desc: 'Séquences d\'emails hyper-personnalisées avec suivi et relances automatiques.',
-            },
-            {
-              icon: '💰',
-              title: 'Facturation automatique',
-              desc: 'Devis, factures Stripe et relances impayés gérés sans aucune intervention.',
-            },
-          ].map((f) => (
-            <div key={f.title} className="border border-gray-200 rounded-2xl p-8 hover:border-indigo-200 hover:bg-indigo-50/30 transition">
-              <div className="text-3xl mb-4">{f.icon}</div>
-              <h3 className="font-semibold text-lg mb-2">{f.title}</h3>
-              <p className="text-gray-500 text-sm leading-relaxed">{f.desc}</p>
+            {icon:'✍️', title:'Génération de contenu', desc:'Articles SEO, posts LinkedIn et newsletters publiés automatiquement chaque jour sous ta marque.', badge:'Actif'},
+            {icon:'🎯', title:'Prospection ciblée', desc:'Scraping + scoring de leads qualifiés selon ton profil client idéal. Aucune recherche manuelle.', badge:'Auto'},
+            {icon:'📧', title:'Outreach personnalisé', desc:"Séquences d'emails hyper-personnalisées avec suivi et relances automatiques.", badge:'Actif'},
+            {icon:'💰', title:'Facturation automatique', desc:'Devis, factures Stripe et relances impayés gérés sans aucune intervention.', badge:'Auto'},
+          ].map(f => (
+            <div key={f.title} style={{background:'#10101A',border:'1px solid #1E1E35',borderRadius:'16px',padding:'2rem'}}>
+              <div style={{fontSize:'28px',marginBottom:'1rem'}}>{f.icon}</div>
+              <div style={{display:'flex',alignItems:'center',gap:'10px',marginBottom:'8px'}}>
+                <h3 style={{fontSize:'16px',fontWeight:600,margin:0}}>{f.title}</h3>
+                <span style={{fontSize:'10px',background:'rgba(16,185,129,0.15)',color:'#10B981',padding:'2px 10px',borderRadius:'20px',letterSpacing:'0.08em'}}>{f.badge}</span>
+              </div>
+              <p style={{color:'#8884A0',fontSize:'14px',lineHeight:1.6,margin:0}}>{f.desc}</p>
             </div>
           ))}
         </div>
       </section>
 
       {/* HOW IT WORKS */}
-      <section className="bg-gray-50 py-24">
-        <div className="max-w-3xl mx-auto px-6">
-          <h2 className="text-3xl font-bold text-center mb-16">Comment ça marche</h2>
-          <div className="space-y-8">
+      <section style={{background:'#10101A',borderTop:'1px solid #1E1E35',borderBottom:'1px solid #1E1E35',padding:'6rem 2rem'}}>
+        <div style={{maxWidth:'600px',margin:'0 auto'}}>
+          <h2 style={{fontSize:'36px',fontWeight:700,textAlign:'center',marginBottom:'3rem',letterSpacing:'-1px'}}>Comment ça marche</h2>
+          <div style={{display:'flex',flexDirection:'column'}}>
             {[
-              { n: '1', title: 'Tu définis ton offre une seule fois', desc: 'Prix, cible, positionnement — 15 minutes de setup, jamais à refaire.' },
-              { n: '2', title: 'L\'IA crée et distribue le contenu', desc: 'Articles SEO, posts réseaux sociaux, emails — publiés selon ton calendrier automatiquement.' },
-              { n: '3', title: 'Les leads entrent dans la séquence', desc: 'Détection d\'intérêt → email de contact → relance → offre → signature.' },
-              { n: '4', title: 'L\'argent arrive sur ton compte', desc: 'Paiement Stripe automatique, facture générée, client onboardé sans toi.' },
-            ].map((s) => (
-              <div key={s.n} className="flex gap-6 items-start">
-                <div className="w-10 h-10 rounded-full bg-indigo-600 text-white flex items-center justify-center font-bold text-sm flex-shrink-0">
-                  {s.n}
-                </div>
+              {n:'1', t:"Tu définis ton offre une seule fois", d:"Prix, cible, positionnement — 15 minutes de setup, jamais à refaire."},
+              {n:'2', t:"L'IA crée et distribue le contenu", d:"Articles SEO, posts réseaux sociaux, emails — publiés selon ton calendrier automatiquement."},
+              {n:'3', t:"Les leads entrent dans la séquence", d:"Détection d'intérêt → email de contact → relance → offre → signature."},
+              {n:'4', t:"L'argent arrive sur ton compte", d:"Paiement Stripe automatique, facture générée, client onboardé sans toi."},
+            ].map((s,i) => (
+              <div key={s.n} style={{display:'flex',gap:'1.5rem',alignItems:'flex-start',padding:'1.5rem 0',borderBottom:i<3?'1px solid #1E1E35':'none'}}>
+                <div style={{width:'36px',height:'36px',borderRadius:'50%',background:'rgba(124,58,237,0.2)',border:'1px solid rgba(124,58,237,0.4)',display:'flex',alignItems:'center',justifyContent:'center',fontSize:'13px',fontWeight:700,color:'#A78BFA',flexShrink:0}}>{s.n}</div>
                 <div>
-                  <h3 className="font-semibold text-base mb-1">{s.title}</h3>
-                  <p className="text-gray-500 text-sm leading-relaxed">{s.desc}</p>
+                  <h3 style={{fontSize:'15px',fontWeight:600,margin:'0 0 6px'}}>{s.t}</h3>
+                  <p style={{color:'#8884A0',fontSize:'14px',lineHeight:1.6,margin:0}}>{s.d}</p>
                 </div>
               </div>
             ))}
@@ -118,51 +104,67 @@ export default function Home() {
         </div>
       </section>
 
-      {/* PRICING PREVIEW */}
-      <section id="pricing" className="max-w-5xl mx-auto px-6 py-24 text-center">
-        <h2 className="text-3xl font-bold mb-4">Tarifs simples, sans surprise</h2>
-        <p className="text-gray-500 mb-12">Sans engagement. Change ou annule quand tu veux.</p>
-        <div className="grid grid-cols-3 gap-6 mb-10">
-          {PLANS.map((plan) => (
-            <div
-              key={plan.name}
-              className={`rounded-2xl p-8 border text-left ${plan.popular ? 'border-indigo-400 ring-2 ring-indigo-200 bg-indigo-50/40' : 'border-gray-200'}`}
-            >
-              {plan.popular && (
-                <span className="text-xs bg-indigo-600 text-white px-3 py-1 rounded-full font-medium mb-4 inline-block">
-                  Le plus populaire
-                </span>
-              )}
-              <div className="text-sm font-semibold text-gray-400 uppercase tracking-wide mb-2">{plan.name}</div>
-              <div className="text-4xl font-bold mb-1">{plan.price}<span className="text-base text-gray-400 font-normal">€/mois</span></div>
-              <p className="text-sm text-gray-500 mb-6 leading-relaxed">{plan.description}</p>
-              <ul className="space-y-2 mb-8">
-                {plan.features.map((f) => (
-                  <li key={f} className="flex items-start gap-2 text-sm text-gray-700">
-                    <span className="text-green-500 mt-0.5">✓</span>{f}
-                  </li>
-                ))}
-                {plan.notIncluded.map((f) => (
-                  <li key={f} className="flex items-start gap-2 text-sm text-gray-400">
-                    <span className="mt-0.5">✗</span>{f}
-                  </li>
-                ))}
-              </ul>
-              <Link
-                href={`/pricing?plan=${plan.name.toLowerCase()}`}
-                className={`block text-center py-3 rounded-xl text-sm font-semibold transition ${plan.popular ? 'bg-indigo-600 text-white hover:bg-indigo-700' : 'border border-gray-300 text-gray-700 hover:bg-gray-50'}`}
-              >
-                Choisir {plan.name} →
-              </Link>
-            </div>
-          ))}
+      {/* PRICING */}
+      <section id="pricing" style={{maxWidth:'1000px',margin:'0 auto',padding:'6rem 2rem',textAlign:'center'}}>
+        <h2 style={{fontSize:'36px',fontWeight:700,marginBottom:'1rem',letterSpacing:'-1px'}}>Tarifs simples, sans surprise</h2>
+        <p style={{color:'#8884A0',marginBottom:'2rem',fontSize:'16px'}}>Sans engagement · Change ou annule quand tu veux</p>
+
+        <div style={{display:'flex',alignItems:'center',justifyContent:'center',gap:'12px',marginBottom:'3rem'}}>
+          <span style={{fontSize:'14px',color:!annual?'#F0EEE9':'#8884A0',fontWeight:!annual?500:400}}>Mensuel</span>
+          <button onClick={()=>setAnnual(!annual)} style={{width:'44px',height:'24px',borderRadius:'20px',background:annual?'#7C3AED':'#1E1E35',border:'none',cursor:'pointer',position:'relative',transition:'background .2s'}}>
+            <span style={{position:'absolute',top:'3px',width:'18px',height:'18px',background:'#fff',borderRadius:'50%',transition:'left .2s',left:annual?'23px':'3px'}} />
+          </button>
+          <span style={{fontSize:'14px',color:annual?'#F0EEE9':'#8884A0',fontWeight:annual?500:400}}>Annuel</span>
+          <span style={{fontSize:'11px',background:'rgba(16,185,129,0.15)',color:'#10B981',padding:'3px 10px',borderRadius:'20px',fontWeight:500}}>−20%</span>
+        </div>
+
+        <div style={{display:'grid',gridTemplateColumns:'repeat(3,1fr)',gap:'16px',marginBottom:'2rem'}}>
+          {PLANS.map(plan => {
+            const monthly = plan.price
+            const price = annual ? Math.round(monthly * 0.8) : monthly
+            const annualTotal = Math.round(monthly * 0.8 * 12)
+            return (
+              <div key={plan.name} style={{background:'#10101A',border:plan.popular?'2px solid #7C3AED':'1px solid #1E1E35',borderRadius:'16px',padding:'2rem',textAlign:'left',position:'relative'}}>
+                {plan.popular && (
+                  <span style={{position:'absolute',top:'-12px',left:'50%',transform:'translateX(-50%)',background:'#7C3AED',color:'#fff',fontSize:'11px',padding:'3px 14px',borderRadius:'20px',fontWeight:600,whiteSpace:'nowrap'}}>
+                    Le plus populaire
+                  </span>
+                )}
+                <div style={{fontSize:'12px',fontWeight:600,color:'#8884A0',textTransform:'uppercase',letterSpacing:'0.1em',marginBottom:'8px'}}>{plan.name}</div>
+                <div style={{fontSize:'42px',fontWeight:700,marginBottom:'4px',color:'#F0EEE9'}}>{price}<span style={{fontSize:'16px',color:'#8884A0',fontWeight:400}}> €/mois</span></div>
+                {annual && (
+                  <div style={{fontSize:'12px',color:'#10B981',marginBottom:'4px'}}>
+                    soit {annualTotal}€/an · <span style={{color:'#8884A0',textDecoration:'line-through'}}>{monthly * 12}€</span>
+                  </div>
+                )}
+                <p style={{fontSize:'13px',color:'#8884A0',marginBottom:'1.5rem',lineHeight:1.5}}>{plan.description}</p>
+                <ul style={{listStyle:'none',padding:0,margin:'0 0 2rem',display:'flex',flexDirection:'column',gap:'8px'}}>
+                  {plan.features.map(f => (
+                    <li key={f} style={{display:'flex',alignItems:'flex-start',gap:'8px',fontSize:'13px',color:'#F0EEE9'}}>
+                      <span style={{color:'#10B981',flexShrink:0}}>✓</span>{f}
+                    </li>
+                  ))}
+                  {plan.notIncluded.map(f => (
+                    <li key={f} style={{display:'flex',alignItems:'flex-start',gap:'8px',fontSize:'13px',color:'#8884A0'}}>
+                      <span style={{flexShrink:0}}>✗</span>{f}
+                    </li>
+                  ))}
+                </ul>
+                <Link href={`/pricing?plan=${plan.name.toLowerCase()}`} style={{display:'block',textAlign:'center',padding:'12px',borderRadius:'10px',fontSize:'14px',fontWeight:600,textDecoration:'none',background:plan.popular?'#7C3AED':'transparent',color:plan.popular?'#fff':'#F0EEE9',border:plan.popular?'none':'1px solid #1E1E35'}}>
+                  Choisir {plan.name} →
+                </Link>
+              </div>
+            )
+          })}
         </div>
       </section>
 
       {/* FOOTER */}
-      <footer className="border-t border-gray-100 py-8 text-center text-sm text-gray-400">
-        © 2024 AutoFlow · Fait avec ❤️ pour générer 5 000€/mois
+      <footer style={{borderTop:'1px solid #1E1E35',padding:'2rem',textAlign:'center',fontSize:'13px',color:'#8884A0'}}>
+        © 2024 Auto<span style={{color:'#7C3AED'}}>Flow</span> · Contenu IA en marque blanche
       </footer>
+
+      <style>{`@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}`}</style>
     </main>
   )
 }
